@@ -26,6 +26,9 @@ export default function Layout() {
             <Link to="/services" className={navLinkClass('/services')}>
               Services
             </Link>
+            <Link to="/calendar" className={navLinkClass('/calendar')}>
+              Calendar
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-500">{user?.businessName}</span>

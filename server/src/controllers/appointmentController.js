@@ -138,6 +138,7 @@ async function updateStatus(req, res) {
 
   appointment.status = status;
   await appointment.save();
+  await appointment.populate('service', 'name duration price');
   res.json({ appointment });
 }
 
