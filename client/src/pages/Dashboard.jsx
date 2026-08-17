@@ -17,7 +17,10 @@ export default function Dashboard() {
       <div className="bg-white rounded-lg shadow p-6">
         <p className="text-gray-600">Business: {user?.businessName}</p>
         <p className="text-gray-600">
-          Public booking link: <code className="bg-gray-100 px-1 rounded">/book/{user?.businessSlug}</code>
+          Public booking link:{' '}
+          <Link to={`/book/${user?.businessSlug}`} target="_blank" className="text-indigo-600 hover:underline">
+            /book/{user?.businessSlug}
+          </Link>
         </p>
         <p className="mt-4">
           <Link to="/services" className="text-indigo-600 hover:underline text-sm">

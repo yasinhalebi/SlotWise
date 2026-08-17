@@ -121,12 +121,17 @@ export default function Services() {
               />
               <div className="sm:col-span-4 flex gap-2 justify-end">
                 <button
+                  type="button"
                   onClick={() => saveEdit(service._id)}
                   className="text-sm bg-indigo-600 text-white px-3 py-1.5 rounded-md"
                 >
                   Save
                 </button>
-                <button onClick={() => setEditingId(null)} className="text-sm text-gray-600 px-3 py-1.5">
+                <button
+                  type="button"
+                  onClick={() => setEditingId(null)}
+                  className="text-sm text-gray-600 px-3 py-1.5"
+                >
                   Cancel
                 </button>
               </div>
@@ -143,13 +148,13 @@ export default function Services() {
                 </p>
               </div>
               <div className="flex gap-3 text-sm shrink-0">
-                <button onClick={() => toggleActive(service)} className="text-gray-600 hover:underline">
+                <button type="button" onClick={() => toggleActive(service)} className="text-gray-600 hover:underline">
                   {service.isActive ? 'Deactivate' : 'Activate'}
                 </button>
-                <button onClick={() => startEdit(service)} className="text-indigo-600 hover:underline">
+                <button type="button" onClick={() => startEdit(service)} className="text-indigo-600 hover:underline">
                   Edit
                 </button>
-                <button onClick={() => handleDelete(service._id)} className="text-red-600 hover:underline">
+                <button type="button" onClick={() => handleDelete(service._id)} className="text-red-600 hover:underline">
                   Delete
                 </button>
               </div>

@@ -32,7 +32,11 @@ export default function Layout() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-500">{user?.businessName}</span>
-            <button onClick={() => dispatch(logout())} className="text-sm text-red-600 hover:underline">
+            <button
+              type="button"
+              onClick={() => dispatch(logout())}
+              className="text-sm text-red-600 hover:underline"
+            >
               Log out
             </button>
           </div>

@@ -39,6 +39,7 @@ export default function AppointmentModal({ appointment, onClose }) {
           {STATUS_OPTIONS.filter((s) => s !== appointment.status).map((status) => (
             <button
               key={status}
+              type="button"
               onClick={() => handleStatusChange(status)}
               className="text-xs px-3 py-1.5 rounded-md border border-gray-300 hover:bg-gray-50 capitalize"
             >
@@ -47,10 +48,10 @@ export default function AppointmentModal({ appointment, onClose }) {
           ))}
         </div>
         <div className="flex justify-between">
-          <button onClick={handleDelete} className="text-sm text-red-600 hover:underline">
+          <button type="button" onClick={handleDelete} className="text-sm text-red-600 hover:underline">
             Delete
           </button>
-          <button onClick={onClose} className="text-sm text-gray-600 hover:underline">
+          <button type="button" onClick={onClose} className="text-sm text-gray-600 hover:underline">
             Close
           </button>
         </div>

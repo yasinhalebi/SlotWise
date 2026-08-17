@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Services from './pages/Services';
 import CalendarPage from './pages/CalendarPage';
+import PublicBooking from './pages/PublicBooking';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout';
 
@@ -12,6 +13,7 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/book/:businessSlug" element={<PublicBooking />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
