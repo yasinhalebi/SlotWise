@@ -5,3 +5,8 @@ dist/
 build/
 *.log
 .DS_Store
+
+# local-only planning/tracking notes, not part of the published project
+PROGRESS.md
+project-knowledge.md
+cleanup-test-users.js
