@@ -7,6 +7,8 @@ A booking platform for small service businesses (salons, clinics, studios, perso
 
 > The API is hosted on a free-tier instance that spins down after inactivity — the first request after a while may take 20–30s to wake it up.
 
+**Try it without signing up:** the homepage has a "Try the owner dashboard" button that logs you into a demo business account, and a "See a customer booking page" button that opens the public booking flow directly.
+
 ## The problem
 
 Small business owners often manage appointments manually over WhatsApp or a paper notebook, which leads to double-bookings and wasted time. SlotWise gives them a simple dashboard to manage their services and calendar, plus a public booking link they can share with customers — no account required on the customer's end.

@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { loginUser } from '../features/auth/authSlice';
 
+const DEMO_EMAIL = 'frontend.test@example.com';
+const DEMO_PASSWORD = 'testpass123';
+
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [searchParams] = useSearchParams();
+  const isDemo = searchParams.get('demo') === '1';
+  const [email, setEmail] = useState(isDemo ? DEMO_EMAIL : '');
+  const [password, setPassword] = useState(isDemo ? DEMO_PASSWORD : '');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
@@ -21,7 +26,12 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow">
-        <h1 className="text-2xl font-semibold mb-6 text-center">Log in to SlotWise</h1>
+        <h1 className="text-2xl font-semibold mb-2 text-center">Log in to SlotWise</h1>
+        {isDemo && (
+          <p className="mb-4 text-sm text-center text-indigo-700 bg-indigo-50 p-2 rounded">
+            Demo account pre-filled — just hit Log in
+          </p>
+        )}
         {error && <p className="mb-4 text-sm text-red-600 bg-red-50 p-2 rounded">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
