@@ -10,6 +10,7 @@ const {
   timeToMinutes,
   minutesToTime,
 } = require('../utils/timeUtils');
+const { sendBookingConfirmation, sendOwnerNotification } = require('../utils/email');
 
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 const VALID_STATUSES = ['pending', 'confirmed', 'cancelled', 'completed'];
@@ -102,6 +103,26 @@ async function createAppointment(req, res) {
     notes,
     status: 'pending',
   });
+
+  await Promise.all([
+    sendBookingConfirmation({
+      to: customerEmail,
+      customerName,
+      businessName: owner.businessName,
+      serviceName: service.name,
+      date,
+      startTime,
+    }),
+    sendOwnerNotification({
+      to: owner.email,
+      ownerName: owner.name,
+      customerName,
+      customerPhone,
+      serviceName: service.name,
+      date,
+      startTime,
+    }),
+  ]);
 
   res.status(201).json({ appointment });
 }
